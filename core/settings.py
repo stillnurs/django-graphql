@@ -36,11 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles', # required by GraphiQL
+    'django.contrib.staticfiles', # Required for GraphiQL
     # apps
     'books',
+    'quiz',
     # packages
-    'graphene_django'
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
