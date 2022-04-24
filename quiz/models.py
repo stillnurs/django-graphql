@@ -7,9 +7,12 @@ class Category(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+    class Meta:
+        verbose_name_plural = "Categories"
 
 
-class Quizzes(models.Model):
+class Quiz(models.Model):
     title = models.CharField(max_length=255, default=_("New Quiz"))
     category = models.ForeignKey(
         Category, default=1, on_delete=models.DO_NOTHING)
@@ -17,6 +20,9 @@ class Quizzes(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+    class Meta:
+        verbose_name_plural = "Quizzes"
 
 
 class Question(models.Model):
@@ -33,7 +39,7 @@ class Question(models.Model):
     )
 
     quiz = models.ForeignKey(
-        Quizzes, related_name='question', on_delete=models.DO_NOTHING)
+        Quiz, related_name='question', on_delete=models.DO_NOTHING)
     technique = models.IntegerField(
         choices=TYPE, default=0, verbose_name=_("Type of Question")
     )
